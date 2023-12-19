@@ -23,13 +23,13 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone
+   git clone https://github.com/dshetty3/Bowl-Craft.git
 
 2. Open the project directory:
 
 3. Copy code
    ```bash
-    cd your-repo
+    cd Bowl Craft
 
 3. Open the index.html file in your preferred web browser.
 
