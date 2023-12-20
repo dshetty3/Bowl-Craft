@@ -11,7 +11,7 @@ Welcome to the Make Your Own Healthy Bowl frontend application! This project all
 
 
 ## Demo
-<img src = "./img/BowlCraft1.gif" alt = "Bowl Craft" style:"width: 90%;"/> 
+<img src="./img/BowlCraft1.gif" alt="BowlCraft GIF" width="90%"/>
 
 ## Features
 - **Ingredient Selection:** Users can choose from a variety of ingredients to customize their bowl.
