@@ -78,14 +78,17 @@
                         <p class="home-desc">
                             Welcome to the world of Tasty, Healty and Fresh Food for every mood.
                         </p>
-                        <a href="#" class="button">
+                        <a href="#" class="button" onclick="openOrderModal()">
                             Go and order NOW <i class="fa-solid fa-arrow-right"></i>
                         </a>
+                        
                     </div>
                 </div>
                 <img src="img/leaf-branch-2.png" alt="home img" class="home-leaf-1">
                 <img src="img/leaf-branch-4.png" alt="home img" class="home-leaf-2">
             </section>
+
+            
 
             <!--==================== ABOUT ====================-->
             <section class="about section" id="about">
@@ -121,6 +124,8 @@
                     <div class="popular-container container grid">
                         <article class="popular-card">
                             <img src="img/rice-bowl-6.jpeg" alt="popular image" class="popular-img">
+
+                            <br><br><br><br><br>
                             <h3 class="popular-name">Rice Bowl</h3>
                             <span class="popular-desc">Chicken Fajita Bowl</span>
                             <span class="popular-price">$13.99</span>
@@ -131,6 +136,7 @@
 
                         <article class="popular-card">
                             <img src="img/burrito.jpeg" alt="popular image" class="popular-img">
+                            <br><br><br><br><br>
                             <h3 class="popular-name">Burritos</h3>
                             <span class="popular-desc">Veggie Burrito</span>
                             <span class="popular-price">$10.99</span>
@@ -141,6 +147,7 @@
                      
                         <article class="popular-card">
                             <img src="img/steak.webp" alt="popular image" class="popular-img">
+                            <br><br><br><br><br>
                             <h3 class="popular-name">Salad</h3>
                             <span class="popular-desc">Steak Salad</span>
                             <span class="popular-price">$15.99</span>
@@ -162,7 +169,8 @@
                         <img src="img/rice-bowl-5.jpeg" alt="recently img" class="recently-data-img">
                         <p class="recently-desc">The rich flavour of Chicken dipped in Teriyaki sauce mixed with 
                             avocado chunks topping it off with spicy corn, fresh lime and cilantro. </p>
-                            <a href="#" class="button">
+                            <a href="#" class="button" id="special" onclick="openSecondModal('special')" >
+                                
                                 Order Now <i class="fa-solid fa-arrow-right"></i>
                             </a>
                             <img src="img/corn.png" alt="recently img" class="recently-data-corn">
@@ -323,10 +331,155 @@
                     This website is a project and does not publicize for a real brand.
                 </span>
             </div>
-
-
-            
         </footer>
+
+
+        <div id="orderModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeOrderModal()">&times;</span>
+                <p>Select your protein:</p>
+                <div id="selectProteinError"> </div>
+                <form id="orderForm" class="grid-container">
+                    <div class="grid-item" onclick="selectProtein('Chicken')">
+                        <img src="/img/chicken.jpeg" alt="Chicken">
+                        Chicken
+                    </div>
+                    <div class="grid-item" onclick="selectProtein('Steak')">
+                        <img src="/img/steak.jpeg" alt="Steak">
+                        Steak
+                    </div>
+                    <div class="grid-item" onclick="selectProtein('Veggies(Includes Tofu)')">
+                        <img src="/img/tofu.jpeg" alt="Veggies">
+                        Veggies (Includes Tofu)
+                    </div>
+                    <input type="hidden" id="selectedProtein" name="protein" value="">
+                </form>
+                <div class="grid-item">
+                    <button type="button" onclick="openSecondModal('regular')" class="order">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="secondModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeSecondModal()">&times;</span>
+                <p>Select Rice:</p>
+                <div id="selectRiceError"></div>
+                <form id="orderForm1" class="grid-container">
+                    <div class="grid-item" onclick="selectRice('White Rice')">
+                        <img src="/img/whiterice.jpeg" alt="White Rice">
+                        White Rice
+                    </div>
+                    <div class="grid-item" onclick="selectRice('Brown Rice')">
+                        <img src="/img/brownrice.jpeg" alt="Brown Rice">
+                        Brown Rice
+                    </div>
+                    <div class="grid-item" onclick="selectRice('No Rice')" style="justify-content: center; background-color: rgb(249, 249, 249); ">
+                        <img src="/img/norice.jpeg" alt="No Rice">
+                        No Rice
+                    </div>
+                    <input type="hidden" id="selectedRice" name="rice" value="">
+                </form>
+                <div class="grid-item">
+                    <button type="button" class="order" onclick="showBeans()" id="selectBeansBtn">Select Beans</button>
+                </div>
+                <br><br>
+
+            <div id="beansSection" style="display: none;">
+                <p>Select Beans:</p>
+                <div id="selectBeanError"></div>
+                <form id="orderForm2" class="grid-container" style="display: grid;">
+                    <div class="grid-item" onclick="selectBeans('Black Beans')">
+                        <img src="/img/black-beans.webp" alt="Black Beans">
+                        Black Beans'
+                    </div>
+                    <div class="grid-item" onclick="selectBeans('Spicy Garbanzo Beans')">
+                        <img src="/img/garbanzo beans.jpeg" alt="Spicy Garbanzo Beans">
+                        Spicy Garbanzo Beans
+                    </div>
+                    <div class="grid-item" onclick="selectBeans('No Beans')" style="justify-content: center; background-color: rgb(249, 249, 249)">
+                        <img src="/img/norice.jpeg" alt="No Beans">
+                        No Beans
+                    <input type="hidden" id="selectedBean" name="beans" value="">
+                </form>
+                </div>
+            </div>
+                <div class="grid-item">
+                    <button type="button" class="order" onclick="showToppings()" id="selectToppingsBtn" style="display: none;">Select Toppings</button>
+                </div>
+                <br>
+
+                <div id="toppingsSection" style="display: none;">
+                    <p>Select Toppings:</p>
+                    <div id="toppingsGrid">
+                        <div class="grid-item">
+                            <img src="/img/tomato-salsa.jpeg" alt="tomato" onclick="toggleTopping('Fresh Tomato Salsa', this)">
+                            Fresh Tomato Salsa
+                        </div>
+                        <div class="grid-item">    
+                            <img src="/img/chilli-corn.jpeg" alt="chilli" onclick="toggleTopping('Chilli Corn Salsa', this)">
+                            Chilli Corn Salsa
+                        </div> 
+                        <div class="grid-item">   
+                            <img src="/img/red-chilli.jpeg" alt="red-chilli" onclick="toggleTopping('Red Chilli Salsa',this)">
+                            Red Chilli Salsa
+                        </div> 
+                        <div class="grid-item">  
+                            <img src="/img/sour-cream.jpeg" alt="sour" id="sourCream" onclick="toggleTopping('Sour Cream',this)">
+                            Sour Cream
+                        </div> 
+                        <div class="grid-item">     
+                            <img src="/img/queso-blanco.jpeg" alt="queso" onclick="toggleTopping('Queso Blanco', this)">
+                            Queso Blanco
+                        </div>
+                        <div class="grid-item"> 
+                            <img src="/img/cheese.webp" alt="cheese" onclick="toggleTopping('Shredded Cheese', this)">
+                            Shredded Cheese
+                        </div> 
+                        <div class="grid-item">    
+                            <img src="/img/fajita-veggies.jpeg" alt="fajitas" onclick="toggleTopping('Fajitas Veggies',this)"> 
+                            Fajitas Veggies
+                        </div>
+                        <div class="grid-item"> 
+                            <img src="/img/lettuce.jpeg" alt="lettuce" onclick="toggleTopping('Romaine Lettuce',this)">
+                            Romaine Lettuce
+                        </div>    
+                        <div class="grid-item">     
+                            <img src="/img/guac-salad.jpeg" alt="guac" onclick="toggleTopping('Guacamole Salad (+2.99)',this)">
+                            Guacamole Salad (+2.99)
+                        </div>    
+                    </div>
+                    <br>
+                    <button type="button" class="order" id="regular" value="regular" onclick="placeOrder()">Submit Order</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="thirdModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeThirdModal()">&times;</span>
+                <div id="orderSummary" class="order-summary-container">
+                <h2>Order Summary</h2>
+                <div id="orderSummaryContainer">
+                <div id="bowlImage"></div>
+                <div id="orderSummaryContent"></div>
+                
+            </div>
+                  
+                <button type="button" class="order" id="editOrder" onclick="editOrder()">Edit Order</button>
+                <button type="button" class="order" onclick="submitOrder()">Place Order</button>
+            </div>
+
+            <div id="orderSuccess" class="order-success-container" style="display: none;">
+                <h2>Order Successfully Placed</h2>
+                <div class="order-content">
+                    <img src="/img/order-placed-successfully.gif" alt="Success" style="width:500px; height: 400px;">
+                </div>
+            </div>
+        </div>
+            </div>
+        
+        
 
         <!--========== SCROLL UP ==========-->
         <a href="" class="scrollup" id="scroll-up">
